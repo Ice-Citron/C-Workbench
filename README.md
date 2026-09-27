@@ -1,40 +1,81 @@
-# Project-C
-Personal C and C/ROS robotics prep repo for rebuilding low-level C fluency, practising data structures/tooling, and preparing for ROS/CV work ahead of the Imperial C project and robotics internship.
+# C Workbench
 
-## Focus
+This is an ongoing workspace for me to practice about C/C++. It includes study 
+notes, as well as programming exercises and practices.
 
-This repo is a reactivation lab, not a beginner C course. The aim is to rebuild speed and sharpness in raw C while also preparing for robotics-adjacent engineering work and first-principles system design interviews.
+I started this repository to rebuild my C fluency before the Imperial C
+project and my robotics internship. I continue to use it for HackerRank and
+LeetCode interview practices.
 
-Main tracks:
+## How I study
 
-- `c-labs/`: small C implementation drills with tests, sanitizers, and clean APIs.
-- `interview-prep/`: 40-minute system-design and pseudocode practice.
-- `docs/`: reusable notes on tooling, handoffs, patterns, and project conventions.
+I use QSCHA: questions, syntax hints, conceptual hints, and answers.
 
-## Starting Strategy
+1. Attempt a question with the knowledge I already have.
+2. Use syntax hints when I need help with language features or functions.
+3. Use conceptual hints when I need help with the logic.
+4. Compare my attempt with the answer, then repeat with fewer hints.
 
-The first useful target is not a large project. It is a tight loop:
+The notebooks retain my attempts and later corrections.
 
-1. Build one small C component.
-2. Test it.
-3. Run it with sanitizers.
-4. Write down the design tradeoffs.
-5. Repeat with a slightly more realistic robotics/system component.
+## Topics
 
-Robotics should be the bias, not the cage. Good practice examples include ring buffers, sensor-log parsers, message queues, finite-state machines, coordinate transforms, serialization, and timing loops. For the internship interview, the same repo should also support generic system-design questions that test reasoning rather than robotics knowledge.
+- Pointers, structs, and memory allocation.
+- Dynamic arrays and linked lists.
+- Binary file input and data validation.
+- Bit fields, sign extension, and instruction data.
+- Regular expressions and finite-state machines.
+- Makefiles, compiler warnings, and sanitizers.
+- Telemetry data and system-design interview practice.
 
-## First Sprint
+## Repository structure
 
-- Day 1: dynamic array + unit tests + sanitizer build.
-- Day 2: ring buffer for streaming sensor-like data.
-- Day 3: string/file parser for logs or CSV-style telemetry.
-- Day 4: hashmap or lookup table with explicit ownership rules.
-- Day 5: tiny event loop or finite-state machine.
-- Daily: one 40-minute system-design drill using `interview-prep/system-design-template.md`.
-
-Start here:
-
-```sh
-cd c-labs/dynamic-array
-make build
+```text
+c-labs/
+├── department-lists/    # Linked lists of people and departments
+├── dynamic-array/       # Integer vector with unit tests
+├── fread/               # Binary file input exercises
+├── include-analysis/    # C include analysis with trees and sets
+├── interview-drills/    # Bit operations and telemetry parsers
+├── makefile-practice/   # Build-system exercises
+└── regex-fsm/           # Regular-expression and state-machine labs
+notebooks/              # Dated notes and practice
+interview-prep/         # Question bank and system-design template
+docs/                   # Toolchain notes and study context
 ```
+
+## Start here
+
+- [Dynamic array](c-labs/dynamic-array/) — Memory allocation and API tests.
+- [Binary input](c-labs/fread/) — Read and validate binary records.
+- [Interview drills](c-labs/interview-drills/) — Short C exercises.
+- [Study notebooks](notebooks/) — Notes from each practice session.
+- [Question bank](interview-prep/question-bank.md) — System-design prompts.
+
+Selected notebook topics:
+
+| Notebook | Focus |
+| --- | --- |
+| [May 17](notebooks/May-17.ipynb) | Pointers and memory allocation |
+| [May 24](notebooks/May-24.ipynb) | Makefiles and instruction data |
+| [May 25](notebooks/May-25.ipynb) | Binary input with `fread` |
+| [June 6](notebooks/June-06.ipynb) | Pointers and file input |
+
+## Run the dynamic-array tests
+
+Use Clang and Make. From the repository root:
+
+```bash
+cd c-labs/dynamic-array
+make CC=clang test
+```
+
+The default compiler flags enable AddressSanitizer and
+UndefinedBehaviorSanitizer. Other exercises have separate build setups.
+
+## Sources and licence
+
+Some coursework labs include supplied scaffolding and test utilities.
+Their local README files describe those materials.
+
+The root [LICENSE](LICENSE) contains the MIT License.
